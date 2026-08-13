@@ -14,7 +14,7 @@
 #ifndef DEFAULT_P0_ATTEMPT_TIMEOUT_SEC
 #define DEFAULT_P0_ATTEMPT_TIMEOUT_SEC 20
 #endif
-#define APP_MIN_BOOT_UPTIME_SEC 120
+#define APP_MIN_BOOT_UPTIME_SEC 0
 
 #if defined(APP_PAYLOAD) && defined(SLIDE_P0_OFFSET_CANDIDATES)
 struct app_p0_shared_state {
@@ -110,6 +110,7 @@ __attribute__((constructor)) static void load(void) {
   started = 1;
   set_unbuffer();
   wait_for_boot_quiet_window();
+  pr_success("=== EXPLOIT LOADED FOR GALAXY A26 5G (SM-A266B) ===\n");
 
   int max_attempts = env_int(
       "EXPLOIT_ATTEMPTS", DEFAULT_EXPLOIT_ATTEMPTS, 1, 64);
