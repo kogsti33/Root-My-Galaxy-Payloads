@@ -1,0 +1,33 @@
+name: Build Payloads
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update && sudo apt-get install -y build-essential gcc-aarch64-linux-gnu
+          pip install pyelftools vmlinux-to-elf
+
+      - name: Verify targets and manifests
+        run: |
+          python3 -c "import json; json.load(open('support/targets-v3.json'))"
+          echo "[+] Manifest is valid JSON."
+
+      - name: Check Artifacts
+        run: |
+          ls -lh artifacts/a266b-A266BXXU9CZEA/cve-2026-43499-app.so
+          readelf -d artifacts/a266b-A266BXXU9CZEA/cve-2026-43499-app.so | grep NEEDED
