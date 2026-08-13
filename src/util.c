@@ -1536,3 +1536,9 @@ long __isoc23_strtol(const char *nptr, char **endptr, int base) {
 unsigned long long __isoc23_strtoull(const char *nptr, char **endptr, int base) {
   return strtoull(nptr, endptr, base);
 }
+
+// Bionic compatibility fallback for __errno_location
+extern int *__errno(void);
+int *__errno_location(void) {
+  return __errno();
+}
