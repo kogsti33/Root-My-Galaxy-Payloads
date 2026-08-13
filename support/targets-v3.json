@@ -164,6 +164,20 @@
       }
     },
     {
+      "payloadId": "a266b-A266BXXU9CZEA",
+      "displayName": "Galaxy A26 5G | Kernel 5.15.189",
+      "models": ["SM-A266B"],
+      "kernelVersions": ["5.15.189"],
+      "exploit": {
+        "url": "https://raw.githubusercontent.com/BuSung-dev/Root-My-Galaxy-Payloads/main/artifacts/a266b-A266BXXU9CZEA/cve-2026-43499-app.so",
+        "size": 137728
+      },
+      "kernelsu": {
+        "url": "https://raw.githubusercontent.com/BuSung-dev/Root-My-Galaxy-Payloads/main/kernelsu/ksud-dm3q-S9180ZHS8FZF5-kdp",
+        "size": 4556352
+      }
+    },
+    {
       "payloadId": "e1s-S921NKSSFDZF3",
       "displayName": "Galaxy S24 | Kernel 6.1.157",
       "models": ["SM-S921N"],
