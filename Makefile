@@ -38,6 +38,7 @@ APP_PRELOAD_SRCS := \
 
 COMMON_CFLAGS := \
   -std=gnu11 \
+  -mno-outline-atomics \
   -O2 -g0 -Wall -Wextra \
   -Wno-unused-parameter -Wno-sign-compare \
   -Isrc -DTARGET_HEADER='"$(TARGET_INCLUDE)"'
