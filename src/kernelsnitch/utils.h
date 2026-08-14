@@ -67,16 +67,24 @@
 #ifdef DEBUG
 #ifdef ANDROID_APP_NO_LKM
 #define pr_error(fmt, ...) do { \
+        printf("[!] %s:%d " fmt, __FILE__, __LINE__, ##__VA_ARGS__); \
+        fflush(stdout); \
         __android_log_print(ANDROID_LOG_ERROR, "google_poc_app", "[!] %s:%d " fmt, __FILE__, __LINE__, ##__VA_ARGS__); \
         exit(-1); \
     } while (0)
 #define pr_warning(fmt, ...) do { \
+        printf("[-] %s:%d " fmt, __FILE__, __LINE__, ##__VA_ARGS__); \
+        fflush(stdout); \
         __android_log_print(ANDROID_LOG_WARN, "google_poc_app", "[-] %s:%d " fmt, __FILE__, __LINE__, ##__VA_ARGS__); \
     } while (0)
 #define pr_info(fmt, ...) do { \
+        printf("[*] %s:%d " fmt, __FILE__, __LINE__, ##__VA_ARGS__); \
+        fflush(stdout); \
         __android_log_print(ANDROID_LOG_INFO, "google_poc_app", "[*] %s:%d " fmt, __FILE__, __LINE__, ##__VA_ARGS__); \
     } while (0)
 #define pr_success(fmt, ...) do { \
+        printf("[+] %s:%d " fmt, __FILE__, __LINE__, ##__VA_ARGS__); \
+        fflush(stdout); \
         __android_log_print(ANDROID_LOG_INFO, "google_poc_app", "[+] %s:%d " fmt, __FILE__, __LINE__, ##__VA_ARGS__); \
     } while (0)
 #else
@@ -97,16 +105,24 @@
 #else
 #ifdef ANDROID_APP_NO_LKM
 #define pr_error(fmt, ...) do { \
+        printf("[!] " fmt, ##__VA_ARGS__); \
+        fflush(stdout); \
         __android_log_print(ANDROID_LOG_ERROR, "google_poc_app", "[!] " fmt, ##__VA_ARGS__); \
         exit(-1); \
     } while (0)
 #define pr_warning(fmt, ...) do { \
+        printf("[-] " fmt, ##__VA_ARGS__); \
+        fflush(stdout); \
         __android_log_print(ANDROID_LOG_WARN, "google_poc_app", "[-] " fmt, ##__VA_ARGS__); \
     } while (0)
 #define pr_info(fmt, ...) do { \
+        printf("[*] " fmt, ##__VA_ARGS__); \
+        fflush(stdout); \
         __android_log_print(ANDROID_LOG_INFO, "google_poc_app", "[*] " fmt, ##__VA_ARGS__); \
     } while (0)
 #define pr_success(fmt, ...) do { \
+        printf("[+] " fmt, ##__VA_ARGS__); \
+        fflush(stdout); \
         __android_log_print(ANDROID_LOG_INFO, "google_poc_app", "[+] " fmt, ##__VA_ARGS__); \
     } while (0)
 #else
