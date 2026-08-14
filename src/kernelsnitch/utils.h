@@ -178,9 +178,9 @@ static inline void set_limit(void)
 
 static inline void set_unbuffer(void)
 {
-    SYSCHK(setvbuf(stdin,  NULL, _IONBF, 0));
-    SYSCHK(setvbuf(stdout, NULL, _IONBF, 0));
-    SYSCHK(setvbuf(stderr, NULL, _IONBF, 0));
+    if (stdin)  setvbuf(stdin,  NULL, _IONBF, 0);
+    if (stdout) setvbuf(stdout, NULL, _IONBF, 0);
+    if (stderr) setvbuf(stderr, NULL, _IONBF, 0);
 }
 
 static inline void set_proc_name(const char *name)
